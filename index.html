@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ACC/DMFC Laminar Analysis Pipeline by Xiaolei Yin, developed under the supervision of Dr. Amir Sajad. Project README and private repository access requests.">
+<meta name="author" content="Xiaolei Yin">
+<meta name="theme-color" content="#123c39">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ACC/DMFC Laminar Analysis Pipeline | Xiaolei Yin">
+<meta property="og:description" content="Research software developed by Xiaolei Yin under the supervision of Dr. Amir Sajad. Explore the project README or request repository access.">
+<title>ACC/DMFC Laminar Analysis Pipeline | Xiaolei Yin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23123c39'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Arial,sans-serif' font-size='25' fill='white'%3EXY%3C/text%3E%3C/svg%3E">
+<style>:root{--ink:#192d31;--muted:#56686c;--accent:#175c53;--accent-dark:#123c39;--line:#dce5e2;--paper:#fff;--wash:#f5f8f7;--radius:12px;font-family:Inter,"Segoe UI",Arial,sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none;color-scheme:light}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:96px}body{margin:0;font-size:16px;line-height:1.7}a{color:var(--accent);text-underline-offset:3px}button,input{font:inherit}button,a,input,summary{-webkit-tap-highlight-color:transparent}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible,[tabindex="0"]:focus-visible{outline:3px solid #cb7c3c;outline-offset:4px}h1,h2,h3,h4{line-height:1.3;letter-spacing:-.025em}::selection{background:#cce6de}svg{display:block}[hidden]{display:none!important}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:fixed;top:8px;left:12px;z-index:99;padding:8px 16px;background:white;transform:translateY(-160%)}.skip-link:focus{transform:translateY(0)}
+.site-header{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(255,255,255,.97)}.header-inner{max-width:1400px;margin:auto;height:80px;padding:0 44px;display:flex;align-items:center;justify-content:space-between;gap:24px}.identity{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-weight:650;font-size:16px;line-height:1.3}.monogram{width:40px;height:40px;border-radius:11px;background:var(--accent-dark);color:white;display:grid;place-items:center;font-size:14px;letter-spacing:.05em}.identity-sub{display:block;font-weight:400;font-size:12px;color:var(--muted);margin-top:3px}.header-inner nav{display:flex;align-items:center;gap:30px;font-size:14px}.header-inner nav a{color:var(--ink);text-decoration:none}.header-inner nav a:hover{text-decoration:underline}.header-contact{font-weight:600}.header-contact span{margin-left:6px}
+.hero{background:var(--wash);border-bottom:1px solid var(--line)}.hero-inner{max-width:1400px;margin:auto;padding:58px 44px 60px;display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:76px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-weight:700;font-size:11px;color:var(--accent);margin:0 0 18px}.hero h1{font-size:clamp(32px,3.9vw,53px);line-height:1.12;letter-spacing:-.045em;font-weight:650;margin:0 0 22px}.hero-description{font-size:17px;line-height:1.75;max-width:700px;margin:0 0 19px;color:#485e62}.authorship{font-size:13px;line-height:1.8;color:var(--muted);margin:0}.authorship strong{color:var(--ink);font-weight:600}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:29px}.button{display:inline-flex;align-items:center;justify-content:center;gap:17px;border-radius:7px;min-height:43px;padding:10px 17px;font-size:13px;font-weight:650;text-decoration:none;border:1px solid transparent;transition:background .15s}.button-primary{background:var(--accent);color:#fff}.button-primary:hover{background:var(--accent-dark)}.button-outline{background:white;border-color:#ccdad5;color:var(--accent-dark)}.button-outline:hover{background:#eaf1ee}.button span{font-size:17px;line-height:1}
+.access-card{background:var(--accent-dark);border-radius:var(--radius);color:white;padding:27px 27px 24px;box-shadow:0 8px 32px #123c390a}.availability{display:flex;gap:7px;align-items:center;font-size:10px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;color:#c4dfd3}.availability>span{height:6px;width:6px;background:#a9cdbb;border-radius:50%}.access-card h2{font-size:25px;line-height:1.25;font-weight:550;letter-spacing:-.03em;margin:23px 0 12px}.access-card p{font-size:13px;line-height:1.75;color:#d4e2de;margin:0 0 15px}.card-email{display:block;overflow-wrap:anywhere;color:white;font-size:14px;text-decoration:underline}.card-action{border-top:1px solid #ffffff2e;padding-top:18px;margin-top:24px;color:white;text-decoration:none;font-size:12px;font-weight:650;display:flex;align-items:center;justify-content:space-between;gap:10px}.card-action:hover{text-decoration:underline}.access-card p.email-note{font-size:10px;color:#b9cec8;margin:11px 0 0;line-height:1.6}
+.guide-intro{max-width:1400px;margin:auto;padding:23px 44px;display:flex;gap:26px;border-bottom:1px solid var(--line);align-items:center}.guide-label{font-size:12px;font-weight:700;white-space:nowrap;color:var(--accent)}.guide-intro p{margin:0;color:var(--muted);font-size:12px;line-height:1.7}.documentation-layout{max-width:1400px;margin:auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:62px;padding:36px 44px 74px}.sidebar{min-width:0}.sidebar-sticky{position:sticky;top:111px;max-height:calc(100vh - 137px);display:flex;flex-direction:column}.sidebar-label{text-transform:uppercase;letter-spacing:.12em;font-size:10px;font-weight:700;color:var(--muted);margin:0 0 17px}.sidebar nav{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding-right:15px}.toc{list-style:none;margin:0;padding:0}.toc li{margin:0}.toc a{display:block;font-size:11px;line-height:1.55;padding:7px 10px;color:var(--muted);text-decoration:none;border-left:2px solid transparent}.toc-level-2 a{font-weight:600}.toc .toc-level-3 a{padding-left:22px;font-size:10.5px}.toc a:hover{background:var(--wash);color:var(--accent)}.toc a[aria-current="location"]{color:var(--accent);background:#edf4f0;border-left-color:var(--accent)}.sidebar-download{margin-top:21px;border-top:1px solid var(--line);padding-top:17px;font-size:11px;text-decoration:none;font-weight:600}.reading-column{min-width:0;max-width:900px}.mobile-toc{display:none}.guide-tools{display:flex;gap:16px;align-items:center;margin-bottom:30px}.search-wrap{position:relative;flex:1}.search-wrap input{width:100%;height:43px;border:1px solid #d5dfdc;border-radius:7px;background:var(--wash);padding:8px 72px 8px 37px;color:var(--ink);font-size:12px}.search-symbol{position:absolute;left:13px;top:7px;font-size:20px;color:var(--muted)}kbd{position:absolute;right:12px;top:12px;border:1px solid var(--line);background:white;border-radius:3px;padding:0 5px;color:var(--muted);font-family:inherit;font-size:9px;pointer-events:none}.print-button{border:0;background:transparent;color:var(--muted);padding:10px 0;font-size:11px;white-space:nowrap}.print-button:hover{color:var(--accent);text-decoration:underline}
+#search-results{margin:-10px 0 30px;padding:15px 18px;background:var(--wash);border:1px solid var(--line);border-radius:8px}.results-header{display:flex;align-items:center;justify-content:space-between;gap:12px}.results-header p{font-size:12px;margin:0;font-weight:600}.results-header button{background:white;border:1px solid var(--line);border-radius:4px;color:var(--accent);font-size:11px;padding:3px 9px}#search-result-list{list-style:none;padding:0;margin:8px 0 0}#search-result-list li{border-top:1px solid var(--line);padding:10px 0}#search-result-list a{font-size:13px;font-weight:600}#search-result-list p{font-size:11px;line-height:1.6;color:var(--muted);margin:3px 0 0;overflow-wrap:anywhere}
+.guide{font-size:14px;line-height:1.85;overflow-wrap:anywhere}.guide>p:first-child{margin-top:0}.guide p{margin:0 0 18px}.guide h2{font-size:25px;line-height:1.35;margin:52px 0 21px;padding-top:27px;border-top:1px solid var(--line);font-weight:650}.guide h2:first-child{margin-top:0}.guide h3{font-size:19px;margin:35px 0 17px;font-weight:650}.guide h4{font-size:16px;margin:29px 0 15px;font-weight:650}.heading-link{display:inline-block;margin-left:9px;text-decoration:none;color:#8b9f98;opacity:0;font-size:.75em;vertical-align:middle}.guide h2:hover .heading-link,.guide h3:hover .heading-link,.guide h4:hover .heading-link,.heading-link:focus-visible{opacity:1}.guide h2:target,.guide h3:target,.guide h4:target{color:var(--accent)}.guide :is(h2,h3,h4):focus{outline:none}.guide :is(h2,h3,h4):focus-visible{outline:2px solid var(--accent);outline-offset:5px}.guide ul,.guide ol{padding-left:24px;margin:0 0 20px}.guide li{margin:6px 0}.guide li p{margin:0 0 10px}.guide code{font-family:Consolas,"Cascadia Code","Liberation Mono",monospace;font-size:.89em;background:#eef3f1;border:1px solid #e1e9e5;border-radius:4px;padding:1px 4px;overflow-wrap:anywhere}.code-shell{position:relative;margin:21px 0 25px}.guide pre{position:relative;margin:21px 0 25px;border:1px solid #dce5e1;background:#f4f7f5;border-radius:8px;padding:21px;overflow-x:auto;tab-size:4;line-height:1.7;scrollbar-width:thin}.code-shell pre{margin:0;padding-top:42px}.guide pre code{background:none;border:none;border-radius:0;padding:0;font-size:11.5px;line-height:1.7;color:#234a48;white-space:pre;word-wrap:normal;overflow-wrap:normal}.code-language{position:absolute;top:10px;left:20px;font-size:9px;letter-spacing:.1em;font-weight:600;color:#697b75;text-transform:uppercase;z-index:1}.code-copy{position:absolute;right:10px;top:8px;z-index:1;background:white;border:1px solid #d7e2dd;border-radius:4px;font-size:9px;line-height:1.6;padding:2px 7px;color:#3f5a51}.table-scroll{overflow-x:auto;margin:24px 0;border:1px solid var(--line);border-radius:8px}.guide table{border-collapse:collapse;width:100%;font-size:12px;min-width:440px}.guide th,.guide td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line);line-height:1.65}.guide th{font-weight:650;background:var(--wash)}.guide tr:last-child td{border-bottom:0}.guide blockquote{margin:24px 0;padding:16px 20px;border-left:3px solid var(--accent);background:var(--wash)}.private-doc::after{content:" ↗";font-size:.85em}.guide a:hover{color:#0d3930}
+.bottom-contact{margin-top:60px;padding:32px;border:1px solid var(--line);border-radius:var(--radius);background:var(--wash)}.bottom-contact .eyebrow{margin-bottom:12px}.bottom-contact h2{font-size:27px;font-weight:600;margin:0 0 14px}.bottom-contact p:not(.eyebrow){font-size:13px;color:var(--muted);max-width:580px;margin:0 0 23px}.bottom-email{display:block;font-size:12px;margin-top:15px;overflow-wrap:anywhere}footer{max-width:1312px;margin:auto;border-top:1px solid var(--line);padding:23px 0 30px;display:flex;justify-content:space-between;gap:25px;font-size:11px;color:var(--muted)}footer p{margin:0}footer a{white-space:nowrap;text-decoration:none}.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(80px);transition:transform .2s;background:var(--accent-dark);color:white;padding:9px 18px;border-radius:6px;font-size:12px;pointer-events:none;z-index:50}.toast.visible{transform:translateX(-50%) translateY(0)}
+.synthetic-figure{margin:25px 0;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:#fff;break-inside:avoid}.figure-preview{display:block;padding:10px}.figure-preview:focus-visible{outline-offset:-4px}.synthetic-figure img{display:block;max-width:100%;width:100%;height:auto}.synthetic-figure figcaption{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:8px 18px;padding:13px 16px;border-top:1px solid var(--line);background:var(--wash);font-size:11px;line-height:1.7;color:var(--muted)}.synthetic-figure figcaption strong{font-weight:600;color:var(--ink)}.synthetic-figure figcaption a{font-weight:600;white-space:nowrap}
+@media(min-width:1600px){.hero-inner{gap:110px}.documentation-layout{gap:75px}}
+@media(max-width:1100px){.header-inner{padding:0 28px}.hero-inner{padding:44px 28px;gap:35px;grid-template-columns:minmax(0,1fr) 300px}.hero h1{font-size:38px}.hero-description{font-size:15px}.guide-intro{padding:20px 28px}.documentation-layout{grid-template-columns:225px minmax(0,1fr);padding:30px 28px 55px;gap:32px}.toc a{font-size:10px}.toc .toc-level-3 a{font-size:10px;padding-left:16px}.guide{font-size:13px}.guide h2{font-size:23px}footer{margin:0 28px}}
+@media(max-width:800px){.hero-inner{grid-template-columns:minmax(0,1fr);gap:30px;max-width:760px}.hero h1{font-size:43px}.hero-description{max-width:610px}.access-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:30px;padding:24px}.availability{grid-column:1}.access-card h2{grid-column:1;grid-row:2 / span 2;font-size:23px;margin:15px 0 0}.access-card h2 br{display:none}.access-card p:not(.email-note){grid-column:2;grid-row:1 / span 2;margin:0 0 11px}.card-email{grid-column:2;font-size:12px}.card-action{grid-column:1 / -1;margin-top:20px}.access-card .email-note{grid-column:1 / -1}.documentation-layout{display:block;max-width:760px;margin:auto}.sidebar{display:none}.mobile-toc{display:block;border:1px solid var(--line);border-radius:7px;margin-bottom:20px;background:var(--wash)}.mobile-toc summary{padding:11px 15px;font-size:12px;font-weight:600;cursor:pointer}.mobile-toc nav{max-height:330px;overflow-y:auto;padding:0 12px 12px}.mobile-toc .toc a{font-size:12px;padding:8px 10px}.mobile-toc .toc .toc-level-3 a{font-size:11px;padding-left:24px}.guide-intro{align-items:flex-start;gap:20px}.guide-intro p{font-size:11px}.guide-tools{margin-bottom:27px}.guide{font-size:14px}.guide h2{font-size:25px}.guide h3{font-size:20px}.reading-column{max-width:none}}
+@media(max-width:480px){body{line-height:1.65}.header-inner{height:68px;padding:0 19px;gap:14px}.identity{gap:9px;font-size:13px}.monogram{width:33px;height:33px;font-size:12px;border-radius:9px}.identity-sub{font-size:10px}.header-inner nav{gap:14px;font-size:11px}.header-inner nav>a:first-child{display:none}.hero-inner{padding:34px 21px;gap:26px}.eyebrow{font-size:9px;letter-spacing:.11em}.hero h1{font-size:34px;margin-bottom:19px}.hero-description{font-size:14px}.authorship{font-size:12px}.hero-actions{gap:9px;margin-top:23px}.button{font-size:11px;gap:10px;padding:10px 12px}.access-card{display:block;padding:23px}.access-card h2{font-size:24px;margin:18px 0 12px}.access-card p:not(.email-note){margin:0 0 12px}.card-email{font-size:14px}.card-action{font-size:12px}.guide-intro{display:block;padding:19px 21px}.guide-label{display:block;margin-bottom:6px}.documentation-layout{padding:25px 21px 42px}.guide-tools{gap:10px}.search-wrap input{padding-right:35px}.search-wrap kbd{display:none}.print-button{font-size:10px}.guide{font-size:13px}.guide h2{font-size:23px;margin-top:37px}.guide h3{font-size:18px}.guide pre{padding:17px}.code-shell pre{padding-top:40px}.guide pre code{font-size:10.5px}.bottom-contact{padding:24px;margin-top:43px}.bottom-contact h2{font-size:24px}footer{font-size:10px;display:block;margin:0 21px;padding:21px 0}footer a{display:inline-block;margin-top:9px}html{scroll-padding-top:83px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+@media print{html{scroll-padding-top:0}body{font-size:10pt;color:#111;background:white}.site-header,.sidebar,.guide-tools,.mobile-toc,.hero-actions,.card-action,.email-note,.heading-link,#search-results,.code-copy,.code-language,.toast,footer a,.skip-link{display:none!important}.hero{background:white;border-bottom:1px solid #bbb}.hero-inner{display:block;padding:0 0 18px}.hero h1{font-size:25pt}.hero h1 br{display:none}.hero-description{font-size:10pt;max-width:none}.authorship{font-size:10pt}.access-card{background:white;color:#111;padding:12px 0 0;box-shadow:none;border-radius:0}.access-card h2,.access-card p:not(.email-note),.availability{display:none}.card-email{color:#111;font-size:10pt}.guide-intro{padding:12px 0;display:block}.guide-intro p{font-size:8pt}.documentation-layout{display:block;padding:15px 0}.reading-column{max-width:none}.guide{font-size:9pt;line-height:1.6}.guide h2{font-size:15pt;margin-top:24px;padding-top:13px;break-after:avoid}.guide h3{font-size:12pt;break-after:avoid}.guide h4{font-size:10pt;break-after:avoid}.guide pre,.code-shell pre{padding:12px;white-space:pre-wrap;overflow:visible;break-inside:avoid}.guide pre code{font-size:7.5pt;white-space:pre-wrap;overflow-wrap:anywhere}.guide p,.guide li{orphans:3;widows:3}.table-scroll{overflow:visible;break-inside:avoid}.guide table{font-size:8pt;min-width:0}.bottom-contact{padding:15px;background:white;break-inside:avoid}.bottom-contact .button{color:#111;background:white;border:1px solid #aaa}.bottom-contact h2{font-size:15pt}footer{margin:0;padding:12px 0;font-size:8pt}.hero a,.bottom-contact a{color:#111}@page{margin:17mm}}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#guide">Skip to project README</a>
+<header class="site-header"><div class="header-inner">
+<a class="identity" href="#top" aria-label="Xiaolei Yin, back to top"><span class="monogram" aria-hidden="true">XY</span><span>Xiaolei Yin<span class="identity-sub">Research software</span></span></a>
+<nav aria-label="Main navigation"><a href="#guide">Project README</a><a class="header-contact" href="#access">Contact &amp; access <span aria-hidden="true">↗</span></a></nav>
+</div></header>
+<main id="top">
+<section class="hero" aria-labelledby="project-title"><div class="hero-inner">
+<div class="hero-copy"><p class="eyebrow">Research software · Project documentation</p>
+<h1 id="project-title">ACC/DMFC Laminar<br>Analysis Pipeline</h1>
+<p class="hero-description">MATLAB tools for event-aligned LFP, current-source density, spectrolaminar PSD, physical-depth alignment, session diagnostics, group plots and trial/patch statistics.</p>
+<p class="authorship">Built by <strong>Xiaolei Yin</strong> under the supervision of <strong>Dr. Amir Sajad</strong>.</p>
+<div class="hero-actions"><a class="button button-primary" href="#guide">Read the project README <span aria-hidden="true">↓</span></a><a class="button button-outline" href="README.md" download>Download Markdown <span aria-hidden="true">↧</span></a></div>
+</div>
+<aside class="access-card" aria-labelledby="access-card-title"><span class="availability"><span aria-hidden="true"></span>Private repository</span><h2 id="access-card-title">Interested in<br>the source code?</h2><p>For repository access or questions about the project, please contact me.</p><a class="card-email" href="mailto:yinzifan407@gmail.com">yinzifan407@gmail.com</a><a class="card-action" href="mailto:yinzifan407@gmail.com?subject=Repository%20access%20request%20%E2%80%94%20ACC%2FDMFC%20MATLAB%20pipeline&amp;body=Dear%20Xiaolei%2C%0A%0AI%20am%20interested%20in%20reviewing%20your%20ACC%2FDMFC%20Laminar%20Analysis%20Pipeline.%0A%0AName%20and%20affiliation%3A%0AReason%20for%20requesting%20access%3A%0AGitHub%20username%20(if%20applicable)%3A%0A%0AThank%20you.">Request repository access <span aria-hidden="true">↗</span></a><p class="email-note">Opens your email app. You can also copy the address above.</p></aside>
+</div></section>
+<div class="guide-intro"><span class="guide-label">Project README</span><p>The README is reproduced below, with its content and order preserved, including the synthetic diagnostic example. Referenced companion documents are available on request.</p></div>
+<div class="documentation-layout">
+<aside class="sidebar" aria-label="README navigation"><div class="sidebar-sticky"><p class="sidebar-label">On this page</p><nav aria-label="README sections"><ol class="toc"><li class="toc-level-2"><a href="#quick-start-one-synthetic-probe">Quick Start: One Synthetic Probe</a></li>
+<li class="toc-level-2"><a href="#grid-views">Grid Views</a></li>
+<li class="toc-level-2"><a href="#documentation">Documentation</a></li>
+<li class="toc-level-2"><a href="#tests">Tests</a></li>
+<li class="toc-level-2"><a href="#repository-contents-and-data-policy">Repository Contents and Data Policy</a></li>
+<li class="toc-level-2"><a href="#statistics-and-revisions">Statistics and Revisions</a></li>
+<li class="toc-level-2"><a href="#grid-display-controls">Grid Display Controls</a></li>
+<li class="toc-level-2"><a href="#coordinate-layouts-detail-pages-and-pdf-export">Coordinate Layouts, Detail Pages and PDF Export</a></li>
+<li class="toc-level-2"><a href="#reference-line-styles">Reference-Line Styles</a></li></ol></nav><a class="sidebar-download" href="README.md" download>↓ Original Markdown</a></div></aside>
+<div class="reading-column">
+<details class="mobile-toc"><summary>Browse README sections</summary><nav aria-label="Mobile README sections"><ol class="toc"><li class="toc-level-2"><a href="#quick-start-one-synthetic-probe">Quick Start: One Synthetic Probe</a></li>
+<li class="toc-level-2"><a href="#grid-views">Grid Views</a></li>
+<li class="toc-level-2"><a href="#documentation">Documentation</a></li>
+<li class="toc-level-2"><a href="#tests">Tests</a></li>
+<li class="toc-level-2"><a href="#repository-contents-and-data-policy">Repository Contents and Data Policy</a></li>
+<li class="toc-level-2"><a href="#statistics-and-revisions">Statistics and Revisions</a></li>
+<li class="toc-level-2"><a href="#grid-display-controls">Grid Display Controls</a></li>
+<li class="toc-level-2"><a href="#coordinate-layouts-detail-pages-and-pdf-export">Coordinate Layouts, Detail Pages and PDF Export</a></li>
+<li class="toc-level-2"><a href="#reference-line-styles">Reference-Line Styles</a></li></ol></nav></details>
+<section class="guide-tools" aria-label="README tools"><div class="search-wrap" hidden><label for="guide-search" class="sr-only">Search the README</label><span class="search-symbol" aria-hidden="true">⌕</span><input id="guide-search" type="search" placeholder="Search the README…" autocomplete="off" aria-controls="search-results" aria-describedby="search-hint"><kbd aria-hidden="true">Ctrl K</kbd></div><button class="print-button" type="button" hidden>Print / save PDF</button></section>
+<p id="search-hint" class="sr-only">Search text and code. Select a result to jump to its section.</p><section id="search-results" aria-label="Search results" hidden><div class="results-header"><p id="search-status" role="status" aria-live="polite"></p><button id="clear-search" type="button">Clear</button></div><ol id="search-result-list"></ol></section>
+<article id="guide" class="guide" aria-label="Complete project README" tabindex="-1"><p>MATLAB tools for event-aligned LFP, current-source density (CSD), spectrolaminar
+PSD, physical-depth alignment, session diagnostics, group plots, and trial/patch
+statistics. Main processing and statistics are distributed together because they
+share the +laminar helpers.</p>
+<h2 id="quick-start-one-synthetic-probe" tabindex="-1">Quick Start: One Synthetic Probe<a class="heading-link" href="#quick-start-one-synthetic-probe" aria-label="Link to Quick Start: One Synthetic Probe">#</a></h2>
+<p>Requires MATLAB with <strong>Signal Processing Toolbox</strong> and <strong>Statistics and Machine
+Learning Toolbox</strong>. The publishing example is validated on R2025b; older releases
+are not certified. No experimental recording or external dataset is required.</p>
+<p>From the downloaded repository folder:</p>
+<pre><code class="language-matlab">addpath(pwd)
+addpath(fullfile(pwd,&#39;examples&#39;,&#39;synthetic_probe&#39;))
+report = run_example;
+</code></pre>
+<p>The example reads one bundled raw MAT file containing a generated 32-channel,
+150-um DMFC-style probe, 32 trials, two conditions, event times, trial regressors,
+and alignment metadata. It produces full-probe and aligned diagnostics, aligned
+CSD panels, and a single-session mean summary under outputs/synthetic_demo/.
+It also compares numerical maps against the bundled reference output.</p>
+<figure class="synthetic-figure"><a class="figure-preview" href="examples/synthetic_probe/expected/diagnostics_regionView.png" target="_blank" rel="noopener" aria-label="Open synthetic aligned diagnostic figure at full resolution"><img src="examples/synthetic_probe/expected/diagnostics_regionView.png" alt="Synthetic aligned diagnostic example: three condition rows showing LFP, CSD, spectrolaminar profiles and channel correlations for a simulated DMFC probe." width="1719" height="803" loading="lazy" decoding="async"></a><figcaption class="website-note"><span><strong>Synthetic aligned diagnostic example.</strong> Simulated data, not an experimental result.</span><a href="examples/synthetic_probe/expected/diagnostics_regionView.png" target="_blank" rel="noopener">Open full-size figure ↗</a></figcaption></figure>
+<p><strong>This is simulated data, not an experimental result.</strong> Its analytic signals
+illustrate layered evoked responses and depth-dependent spectral bands. No real
+samples, real session names, or fitted subject parameters are included. See
+<a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20examples%2Fsynthetic_probe%2FREADME.md" class="private-doc" title="Request this companion document from Xiaolei Yin">example details<span class="sr-only"> (companion document available on request)</span></a> for generation and limitations.</p>
+<h2 id="grid-views" tabindex="-1">Grid Views<a class="heading-link" href="#grid-views" aria-label="Link to Grid Views">#</a></h2>
+<p>Grid panels can show cached per-probe channel correlations, regional or full-32
+ACC signals with sulcus/alignment markers, and an optional descriptive cell
+correlation mean. Select one site or an inclusive rectangle using cfg.grid.filter.
+See the grid-coordinate section in <a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20USER_GUIDE.md" class="private-doc" title="Request this companion document from Xiaolei Yin">USER_GUIDE.md<span class="sr-only"> (companion document available on request)</span></a> for new-run
+settings and cached-only revision examples. No signal recomputation is needed.</p>
+<h2 id="documentation" tabindex="-1">Documentation<a class="heading-link" href="#documentation" aria-label="Link to Documentation">#</a></h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Data table"><table><thead><tr><th>Document</th><th>Purpose</th></tr></thead><tbody><tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20examples%2Fsynthetic_probe%2FREADME.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Example<span class="sr-only"> (companion document available on request)</span></a></td><td>Input schema, generated output, reproduction</td></tr>
+<tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20USER_GUIDE.md" class="private-doc" title="Request this companion document from Xiaolei Yin">User guide<span class="sr-only"> (companion document available on request)</span></a></td><td>Main pipeline options, raw/precomputed modes, ACC/DMFC, revisions, grids</td></tr>
+<tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20PIPELINE_TECHNICAL_GUIDE.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Main technical guide<span class="sr-only"> (companion document available on request)</span></a></td><td>Computation, data contracts, code relationships</td></tr>
+<tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20statistics%2FREADME.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Statistics user guide<span class="sr-only"> (companion document available on request)</span></a></td><td>Hypothesis branches, ANOVA and plot-only revision examples</td></tr>
+<tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20statistics%2FSTATISTICS_TECHNICAL_GUIDE.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Statistics technical guide<span class="sr-only"> (companion document available on request)</span></a></td><td>Algorithms, schemas, interpretation and current limits</td></tr>
+<tr><td><a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20VALIDATION.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Validation<span class="sr-only"> (companion document available on request)</span></a></td><td>Test commands and release verification status</td></tr></tbody></table></div><p>Advanced example scripts contain clearly marked path/to/... placeholders for
+user-supplied data. Edit those before running the advanced examples. The bundled
+example uses repository-relative paths and writes only ignored generated outputs.</p>
+<h2 id="tests" tabindex="-1">Tests<a class="heading-link" href="#tests" aria-label="Link to Tests">#</a></h2>
+<pre><code class="language-matlab">addpath(pwd)
+addpath(&#39;tests&#39;)
+addpath(&#39;statistics&#39;)
+addpath(fullfile(&#39;statistics&#39;,&#39;tests&#39;))
+test_bundled_example
+test_pipeline
+test_statistics_module
+</code></pre>
+<p>The full suites generate temporary synthetic inputs/figures and can take several
+minutes. Expected missing-metadata warnings are part of failure-path tests.
+Numerical tests compare arrays, not platform-dependent PNG bytes.</p>
+<h2 id="repository-contents-and-data-policy" tabindex="-1">Repository Contents and Data Policy<a class="heading-link" href="#repository-contents-and-data-policy" aria-label="Link to Repository Contents and Data Policy">#</a></h2>
+<p>Only source, tests, documentation, one synthetic input MAT, one compact numerical
+reference MAT and four corresponding PNGs are tracked. Generated output folders,
+FIGs, epoch caches, local recordings, spreadsheets, autosaves and archives are
+ignored. No original local output directory is included.</p>
+<p>License selection is <strong>undecided</strong>. No open-source license is granted by this
+repository at this time. See <a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20PROVENANCE.md" class="private-doc" title="Request this companion document from Xiaolei Yin">provenance and licensing notes<span class="sr-only"> (companion document available on request)</span></a>.</p>
+<h2 id="statistics-and-revisions" tabindex="-1">Statistics and Revisions<a class="heading-link" href="#statistics-and-revisions" aria-label="Link to Statistics and Revisions">#</a></h2>
+<p>After run_example:</p>
+<pre><code class="language-matlab">addpath(fullfile(pwd,&#39;statistics&#39;))
+example_statistics_run
+</code></pre>
+<p>This exercises trial-wise LFP/CSD/PSD tests and patch ANOVA on synthetic trials.
+There is only one probe: direct-grand statistical inference needs at least two
+independent probes, so its significance maps will be empty. Do not duplicate the
+single probe to create artificial group sample size. Multi-probe behavior is
+covered by the synthetic tests.</p>
+<p>Redraw results without repeating signal calculations or tests:</p>
+<pre><code class="language-matlab">folder = fullfile(pwd,&#39;outputs&#39;,&#39;synthetic_demo&#39;,&#39;statistics&#39;);
+options = struct(&#39;figureSets&#39;,{{&#39;probeSpecific&#39;,&#39;overlay&#39;}}, ...
+    &#39;branches&#39;,{{&#39;difference&#39;}},&#39;metrics&#39;,{{&#39;CSD&#39;}});
+revise_statistical_visualizations(folder,&#39;CSD_review&#39;,options);
+</code></pre>
+<p>For main-pipeline plots, use main_revise_visualizations.m. For changed alignment,
+use main_revise_alignment.m. Extension/exclusion examples require your own
+additional/multi-probe data; only one example input is distributed.</p>
+<h2 id="grid-display-controls" tabindex="-1">Grid Display Controls<a class="heading-link" href="#grid-display-controls" aria-label="Link to Grid Display Controls">#</a></h2>
+<p>For equal visual grid cells with minimal padding, choose spacingMode=&#39;uniform&#39;.
+cellSize=[] auto-fits the largest session group and label; [width height] is a
+manual override. Coordinate values remain labels, not distance ratios. See
+GRID_PRESENTATION.md for cellPadding/cellLabelHeight and compatibility details.</p>
+<p>Optional spatial cell dividers: plotOverrides.grid.showGridLines=true, with
+gridLineColor, gridLineWidth and gridLineStyle. Independent of empty text, ticks
+and joined-session separators; see GRID_PRESENTATION.md for interactions.</p>
+<p>Full-lattice grid display: latticeSpacing=[dx dy] defines coordinate-unit steps;
+coordinateScale defines pixels per unit. showEmptyCells controls existing empty
+text only, without removing lattice geometry. See GRID_PRESENTATION.md.</p>
+<p>For edge-to-edge session strips within each grid site, set
+plotOverrides.grid.sessionLayout=&#39;joined&#39; and individualCellColumns=[] (automatic
+maximum) or a manual integer. plotOverrides.timeWindow applies to each LFP/CSD
+panel. See GRID_PRESENTATION.md for separators, scaling and colorbar behavior.</p>
+<h2 id="coordinate-layouts-detail-pages-and-pdf-export" tabindex="-1">Coordinate Layouts, Detail Pages and PDF Export<a class="heading-link" href="#coordinate-layouts-detail-pages-and-pdf-export" aria-label="Link to Coordinate Layouts, Detail Pages and PDF Export">#</a></h2>
+<p>Grid strict/coordinate mode now uses actual coordinate values on BOTH axes and
+a common pixel scale: a 1-unit gap is twice a 0.5-unit gap. compressed mode
+preserves shared rows/columns while reducing skipped intervals. Session slots
+retain the same pixel size in sparse and crowded cells; occupied boxes adapt
+to session count. Optional detailPages exports overlapping cached spatial
+windows. plotOverrides.exportFormats={&#39;fig&#39;,&#39;png&#39;,&#39;pdf&#39;} adds vector PDF text/
+lines alongside the usual outputs, also for statistical/ANOVA revisions.
+See GRID_PRESENTATION.md for full settings, tradeoffs and examples.</p>
+<p>Use plotOverrides.grid.swapXY=true in cached revisions (or cfg.grid.swapXY=true
+in new runs) to exchange horizontal/vertical grid coordinates. Filters still
+use original coordinates. See GRID_PRESENTATION.md for output metadata details.</p>
+<p>Grid overview decoration/layout controls (hidden colorbars, legends/ticks,
+uniform enlarged panels, and empty-cell suppression with spatial gaps) are
+documented in <a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20GRID_PRESENTATION.md" class="private-doc" title="Request this companion document from Xiaolei Yin">GRID_PRESENTATION.md<span class="sr-only"> (companion document available on request)</span></a>.</p>
+<h2 id="reference-line-styles" tabindex="-1">Reference-Line Styles<a class="heading-link" href="#reference-line-styles" aria-label="Link to Reference-Line Styles">#</a></h2>
+<p>Cached plot revisions accept plotOverrides.indicators.alignment, .sulcus and
+.exclusion with color (RGB), lineWidth, lineStyle, visible and optional views.
+Unsupported markers warn and are not fabricated; regional/statistical views
+have no common sulcus. See <a href="mailto:yinzifan407@gmail.com?subject=Documentation%20request%20%E2%80%94%20INDICATOR_STYLING.md" class="private-doc" title="Request this companion document from Xiaolei Yin">Reference Indicator Styling<span class="sr-only"> (companion document available on request)</span></a> for
+main/statistical examples, view selectors, warning behavior and implementation.</p>
+</article>
+<section id="access" class="bottom-contact" aria-labelledby="access-title"><p class="eyebrow">Contact &amp; repository access</p><h2 id="access-title">Continue the conversation.</h2><p>To discuss this project or request access to the private repository and companion documentation, please email Xiaolei Yin.</p><a class="button button-primary" href="mailto:yinzifan407@gmail.com?subject=Repository%20access%20request%20%E2%80%94%20ACC%2FDMFC%20MATLAB%20pipeline&amp;body=Dear%20Xiaolei%2C%0A%0AI%20am%20interested%20in%20reviewing%20your%20ACC%2FDMFC%20Laminar%20Analysis%20Pipeline.%0A%0AName%20and%20affiliation%3A%0AReason%20for%20requesting%20access%3A%0AGitHub%20username%20(if%20applicable)%3A%0A%0AThank%20you.">Request repository access <span aria-hidden="true">↗</span></a><a class="bottom-email" href="mailto:yinzifan407@gmail.com">yinzifan407@gmail.com</a></section>
+</div></div>
+</main>
+<footer><p>ACC/DMFC Laminar Analysis Pipeline · Xiaolei Yin</p><a href="#top">Back to top ↑</a></footer>
+<div class="toast" role="status" aria-live="polite"></div>
+<script>(() => {
+  'use strict';
+  const guide = document.getElementById('guide');
+  const search = document.getElementById('guide-search');
+  const panel = document.getElementById('search-results');
+  const status = document.getElementById('search-status');
+  const list = document.getElementById('search-result-list');
+  const toast = document.querySelector('.toast');
+  let toastTimeout;
+  const notify = message => {
+    toast.textContent = message;
+    toast.classList.add('visible');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => toast.classList.remove('visible'), 2400);
+  };
+  const sections = [{ id: 'guide', title: 'Project introduction', text: '' }];
+  for (const child of guide.children) {
+    if (/^H[234]$/.test(child.tagName)) {
+      const clone = child.cloneNode(true);
+      clone.querySelectorAll('.heading-link').forEach(el => el.remove());
+      sections.push({ id: child.id, title: clone.textContent.trim(), text: '' });
+    } else sections[sections.length - 1].text += `${child.textContent}\n`;
+  }
+  document.querySelector('.search-wrap').hidden = false;
+  const printButton = document.querySelector('.print-button');
+  printButton.hidden = false;
+  printButton.addEventListener('click', () => window.print());
+  const clear = () => { search.value = ''; panel.hidden = true; list.replaceChildren(); status.textContent = ''; };
+  document.getElementById('clear-search').addEventListener('click', () => { clear(); search.focus(); });
+  search.addEventListener('keydown', event => {
+    if (event.key === 'Escape') clear();
+    if (event.key === 'Enter') list.querySelector('a')?.click();
+  });
+  search.addEventListener('input', () => {
+    const query = search.value.trim().toLocaleLowerCase();
+    if (!query) { clear(); return; }
+    const words = query.split(/\s+/);
+    const matches = sections.filter(section => words.every(word => `${section.title}\n${section.text}`.toLocaleLowerCase().includes(word)));
+    list.replaceChildren();
+    panel.hidden = false;
+    const shown = Math.min(matches.length, 12);
+    status.textContent = matches.length ? `${matches.length} matching ${matches.length === 1 ? 'section' : 'sections'}${matches.length > shown ? ` · showing ${shown}` : ''}` : 'No matching sections. Try another word or a shorter query.';
+    for (const section of matches.slice(0, 12)) {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `#${section.id}`;
+      link.textContent = section.title;
+      link.addEventListener('click', () => {
+        clear();
+        document.querySelector('.mobile-toc').open = false;
+        document.getElementById(section.id)?.focus({ preventScroll: true });
+      });
+      const excerpt = document.createElement('p');
+      const text = section.text.replace(/\s+/g, ' ').trim();
+      const hit = Math.max(0, text.toLocaleLowerCase().indexOf(words[0]));
+      const start = Math.max(0, hit - 45);
+      excerpt.textContent = `${start ? '…' : ''}${text.slice(start, start + 170)}${text.length > start + 170 ? '…' : ''}`;
+      li.append(link, excerpt);
+      list.append(li);
+    }
+  });
+  document.addEventListener('keydown', event => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+      event.preventDefault(); search.focus(); search.select();
+    }
+  });
+  guide.querySelectorAll('pre').forEach((pre, index) => {
+    const code = pre.querySelector('code');
+    if (!code) return;
+    const shell = document.createElement('div');
+    shell.className = 'code-shell';
+    pre.before(shell);
+    shell.append(pre);
+    const label = document.createElement('span');
+    label.className = 'code-language';
+    label.textContent = code.className.replace('language-', '') || 'Code';
+    shell.prepend(label);
+    pre.tabIndex = 0;
+    pre.setAttribute('aria-label', `${label.textContent} code example ${index + 1}`);
+    if (!navigator.clipboard || !window.isSecureContext) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'code-copy';
+    button.textContent = 'Copy';
+    button.setAttribute('aria-label', `Copy code example ${index + 1}`);
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(code.textContent);
+        notify('Code copied');
+      } catch { notify('Select the code and use your usual copy shortcut.'); }
+    });
+    shell.prepend(button);
+  });
+  const tocLinks = [...document.querySelectorAll('.toc a')];
+  const updateToc = id => tocLinks.forEach(link => {
+    if (link.hash === `#${id}`) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  const sectionHeadings = [...guide.querySelectorAll('h2,h3')];
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) updateToc(visible[0].target.id);
+    }, { rootMargin: '-90px 0px -60% 0px' });
+    sectionHeadings.forEach(heading => observer.observe(heading));
+  }
+  tocLinks.forEach(link => link.addEventListener('click', () => {
+    updateToc(link.hash.slice(1));
+    document.querySelector('.mobile-toc').open = false;
+  }));
+})();
+</script>
+</body></html>
